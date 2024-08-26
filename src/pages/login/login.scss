@@ -1,0 +1,27 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__title {
+    font-size: 2rem;
+  }
+
+  &__field {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__form {
+    width: 600px;
+    margin: 16px;
+    padding: 16px;
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+
+  &__submit-btn {
+    display: block;
+  }
+}

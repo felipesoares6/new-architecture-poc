@@ -14,6 +14,6 @@ export default {
 
 export const ErrorMessageStories = {
   args: {
-    message: "Error message value",
+    errorMessage: "Error message value",
   },
 };

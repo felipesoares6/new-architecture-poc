@@ -19,3 +19,12 @@ export const TextFieldStories = {
     value: "TextField value",
   },
 };
+
+export const TextFieldStoriesWithError = {
+  args: {
+    placeholder: "Placeholder text",
+    type: "text",
+    value: "TextField value",
+    errorMessage: "Error!",
+  },
+};

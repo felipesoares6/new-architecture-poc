@@ -15,6 +15,6 @@ export default {
 export const ButtonStories = {
   args: {
     type: "button",
-    text: "Press me",
+    children: "Press me",
   },
 };
