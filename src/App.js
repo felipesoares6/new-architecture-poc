@@ -1,7 +1,8 @@
-import { LoginPage } from "../src/pages/login/login.tsx";
+import React from "react";
+import { Router } from "./infrastucture/routes/route.tsx";
 
 function App() {
-  return <LoginPage />;
+  return <Router />;
 }
 
 export default App;

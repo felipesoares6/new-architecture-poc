@@ -7,7 +7,7 @@ import { loginDomain } from "./domain/login.domain.ts";
 
 export const LoginPage = () => {
   const { loginState, loginActions } = useLoginInterface({
-    loginStore: loginStore,
+    loginStore,
     loginDomain: loginDomain(),
   });
 
