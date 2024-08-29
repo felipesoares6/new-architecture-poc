@@ -18,10 +18,24 @@ export const makeComplianceUseCase =
   }) =>
   () => {
     const loadInitialComplianceDestinations = async () => {
-      const complianceDestinationsData =
-        await complianceClient.getComplianceDestinations();
+      try {
+        complianceStore.complianceDestinations.isLoading = true;
 
-      complianceStore.complianceDestinations = complianceDestinationsData;
+        const complianceDestinationsData =
+          await complianceClient.getComplianceDestinations();
+
+        complianceStore.complianceDestinations = {
+          value: complianceDestinationsData,
+          error: null,
+          isLoading: false,
+        };
+      } catch (error) {
+        complianceStore.complianceDestinations = {
+          value: [],
+          error: `Error: ${error}`,
+          isLoading: false,
+        };
+      }
     };
 
     return {

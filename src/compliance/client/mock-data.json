@@ -147,7 +147,7 @@
     "tenantId": null,
     "location": "US-IL",
     "offsite": false,
-    "onsite": false,
+    "onsite": true,
     "country": "United States of America",
     "destination": "Illinois",
     "customMessage": "Some Other Message"
@@ -174,7 +174,7 @@
     "tenantId": null,
     "location": "US-KY",
     "offsite": false,
-    "onsite": false,
+    "onsite": true,
     "country": "United States of America",
     "destination": "Kentucky",
     "customMessage": "Some Other Message"
@@ -272,7 +272,7 @@
   {
     "tenantId": null,
     "location": "US-NC",
-    "offsite": false,
+    "offsite": true,
     "onsite": false,
     "country": "United States of America",
     "destination": "North Carolina",
@@ -353,7 +353,7 @@
   {
     "tenantId": null,
     "location": "US-OK",
-    "offsite": false,
+    "offsite": true,
     "onsite": false,
     "country": "United States of America",
     "destination": "Oklahoma",
@@ -390,7 +390,7 @@
     "tenantId": null,
     "location": "US-RI",
     "offsite": false,
-    "onsite": false,
+    "onsite": true,
     "country": "United States of America",
     "destination": "Rhode Island",
     "customMessage": "Some Other Message"
@@ -453,7 +453,7 @@
     "tenantId": null,
     "location": "US-VI",
     "offsite": false,
-    "onsite": false,
+    "onsite": true,
     "country": "United States of America",
     "destination": "Virgin Islands",
     "customMessage": "Some Other Message"
@@ -497,7 +497,7 @@
   {
     "tenantId": null,
     "location": "US-WY",
-    "offsite": false,
+    "offsite": true,
     "onsite": false,
     "country": "United States of America",
     "destination": "Wyoming",
@@ -515,7 +515,7 @@
   {
     "tenantId": null,
     "location": "US-AC",
-    "offsite": false,
+    "offsite": true,
     "onsite": false,
     "country": "United States of America",
     "destination": "Armed Forces Canada",
@@ -524,7 +524,7 @@
   {
     "tenantId": null,
     "location": "US-AE",
-    "offsite": false,
+    "offsite": true,
     "onsite": false,
     "country": "United States of America",
     "destination": "Armed Forces Europe",
@@ -614,7 +614,7 @@
   {
     "tenantId": null,
     "location": "AU-SA",
-    "offsite": false,
+    "offsite": true,
     "onsite": false,
     "country": "Australia",
     "destination": "South Australia",
@@ -668,7 +668,7 @@
   {
     "tenantId": null,
     "location": "CA-MB",
-    "offsite": false,
+    "offsite": true,
     "onsite": false,
     "country": "Canada",
     "destination": "Manitoba",
@@ -695,7 +695,7 @@
   {
     "tenantId": null,
     "location": "CA-NS",
-    "offsite": false,
+    "offsite": true,
     "onsite": false,
     "country": "Canada",
     "destination": "Nova Scotia",
@@ -731,8 +731,8 @@
   {
     "tenantId": null,
     "location": "CA-PE",
-    "offsite": false,
-    "onsite": false,
+    "offsite": true,
+    "onsite": true,
     "country": "Canada",
     "destination": "Prince Edward Island",
     "customMessage": "Some Other Message"
@@ -740,8 +740,8 @@
   {
     "tenantId": null,
     "location": "CA-QC",
-    "offsite": false,
-    "onsite": false,
+    "offsite": true,
+    "onsite": true,
     "country": "Canada",
     "destination": "Quebec",
     "customMessage": "Some Other Message"
@@ -848,8 +848,8 @@
   {
     "tenantId": null,
     "location": "NZ-NTL",
-    "offsite": false,
-    "onsite": false,
+    "offsite": true,
+    "onsite": true,
     "country": "New Zealand",
     "destination": "Northland",
     "customMessage": "Some Other Message"
@@ -893,8 +893,8 @@
   {
     "tenantId": null,
     "location": "NZ-WGN",
-    "offsite": false,
-    "onsite": false,
+    "offsite": true,
+    "onsite": true,
     "country": "New Zealand",
     "destination": "Wellington",
     "customMessage": "Some Other Message"
@@ -902,7 +902,7 @@
   {
     "tenantId": null,
     "location": "NZ-WKO",
-    "offsite": false,
+    "offsite": true,
     "onsite": false,
     "country": "New Zealand",
     "destination": "Waikato",
@@ -912,7 +912,7 @@
     "tenantId": null,
     "location": "NZ-WTC",
     "offsite": false,
-    "onsite": false,
+    "onsite": true,
     "country": "New Zealand",
     "destination": "West Coast",
     "customMessage": "Some Other Message"
