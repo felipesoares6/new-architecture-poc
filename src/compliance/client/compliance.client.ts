@@ -1,7 +1,6 @@
-import {
-  ComplianceDestination,
-  ComplianceDestinationsApiResponse,
-} from "./compliance.model";
+import { ComplianceDestination } from "../domain/compliance.domain.ts";
+import { ComplianceDestinationsApiResponse } from "./compliance.request.ts";
+
 import { normalizeComplianceDestinationsResponse } from "./compliance.normalize.ts";
 
 export interface ComplianceClient {

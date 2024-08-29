@@ -1,7 +1,5 @@
-import {
-  ComplianceDestination,
-  ComplianceDestinationsApiResponse,
-} from "./compliance.model";
+import { ComplianceDestination } from "../domain/compliance.domain";
+import { ComplianceDestinationsApiResponse } from "./compliance.request";
 
 export const normalizeComplianceDestinationsResponse = (
   data: ComplianceDestinationsApiResponse

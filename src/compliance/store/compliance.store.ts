@@ -1,5 +1,5 @@
 import { proxy } from "valtio";
-import { ComplianceDestination } from "../data/compliance.model";
+import { ComplianceDestination } from "../domain/compliance.domain";
 
 // The store is the state layer, it can only be read through the interface and to update it we need a use case
 
