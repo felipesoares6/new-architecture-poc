@@ -13,6 +13,8 @@ const boxStyle = {
   margin: "16px",
 };
 
+// The view will only have access to the interface and/or to the use case as needed, it will never access the store directly
+
 export const ComplianceList = () => {
   const {
     destinationsEnabledOnsite,

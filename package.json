@@ -12,6 +12,7 @@
     "axios": "^1.7.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router": "^6.26.1",
     "react-scripts": "5.0.1",
     "react18-use": "^0.3.0",
     "snakecase-keys": "^8.0.1",

@@ -3,7 +3,11 @@ import { ComplianceStore, complianceStore } from "../store/compliance.store.ts";
 
 import { useSnapshot } from "valtio";
 
-// The presenter could access the domain to apply some bussines logic and transform the data before sending to the component
+// The presenter can read and format from the store to make it available for the UI
+
+// The presenter has access to the store as needed.
+
+// The presenter is a hook, it has to be used inside React.
 
 export const makeUseCompliancePresenter =
   ({ complianceStore }: { complianceStore: ComplianceStore }) =>

@@ -7,9 +7,11 @@ import { ComplianceStore, complianceStore } from "../store/compliance.store.ts";
 import { addDestination } from "./add-destination.usecase.ts";
 import { loadDestinations } from "./load-destinations.usecase.ts";
 
-// The use case represents the actions the UI can take like trigerring an API call, write something on the state and so on
+// The use case represents the actions the UI can take like loading data, write something on the state and so on
 
-// The use case can access the domain for any business logic needed
+// The use case has access to the client and to the store as needed.
+
+// The use case is not a hook, it can be used anywhere.
 
 export const makeComplianceUseCase =
   ({
@@ -23,6 +25,7 @@ export const makeComplianceUseCase =
     return {
       loadDestinations: () =>
         loadDestinations({ complianceStore, complianceClient }),
+
       addDestination: ({
         destinations,
         destination,

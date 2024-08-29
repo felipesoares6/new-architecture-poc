@@ -1,3 +1,5 @@
+// Types and constants related to the entity
+
 export interface Destination {
   destination: string;
   country: string;

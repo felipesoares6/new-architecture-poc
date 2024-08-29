@@ -8,7 +8,7 @@ export const addDestination = ({
 }: {
   complianceStore: ComplianceStore;
   destination: Destination;
-  destinations: Destination[];
+  destinations: readonly Destination[];
 }) => {
   complianceStore.destinations.isLoading = true;
 
