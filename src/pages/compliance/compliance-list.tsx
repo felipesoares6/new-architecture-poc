@@ -3,7 +3,7 @@ import { useCompliancePresenter } from "../../compliance/presenter/compliance.pr
 import { complianceUseCase } from "../../compliance/use-case/compliance.usecase.ts";
 import { Button } from "../../style-guide/atoms/button/button.tsx";
 
-const { loadInitialDestinations } = complianceUseCase();
+const { loadDestinations } = complianceUseCase();
 
 const boxStyle = {
   height: 200,
@@ -22,7 +22,7 @@ export const ComplianceList = () => {
 
   return (
     <>
-      <Button onClick={loadInitialDestinations}>refetch</Button>
+      <Button onClick={loadDestinations}>refetch</Button>
 
       {isLoadingDestinations ? (
         <h3>Loading...</h3>

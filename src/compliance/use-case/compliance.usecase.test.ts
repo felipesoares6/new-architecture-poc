@@ -29,7 +29,7 @@ describe("makeComplianceUseCase", () => {
     });
 
     // Call the function that should load the data
-    await complianceUseCase().loadInitialDestinations();
+    await complianceUseCase().loadDestinations();
 
     // Verify that the store has been updated with the fetched data
     expect(complianceStore.destinations).toEqual({

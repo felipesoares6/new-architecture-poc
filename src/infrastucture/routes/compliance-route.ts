@@ -8,9 +8,9 @@ export const complianceRoute = createRoute({
   path: "/compliance",
   component: CompliancePage,
   loader: async () => {
-    const { loadInitialDestinations } = complianceUseCase();
+    const { loadDestinations } = complianceUseCase();
 
-    await loadInitialDestinations();
+    await loadDestinations();
 
     return;
   },

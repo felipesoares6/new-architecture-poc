@@ -17,7 +17,7 @@ export const makeComplianceUseCase =
     complianceClient: ComplianceClient;
   }) =>
   () => {
-    const loadInitialDestinations = async () => {
+    const loadDestinations = async () => {
       try {
         complianceStore.destinations.isLoading = true;
 
@@ -38,7 +38,7 @@ export const makeComplianceUseCase =
     };
 
     return {
-      loadInitialDestinations,
+      loadDestinations,
     };
   };
 
