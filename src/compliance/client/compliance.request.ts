@@ -1,4 +1,4 @@
-export interface ComplianceDestinationsApiResponse {
+export interface destinationsApiResponse {
   tenantId: any;
   location: string;
   offsite: boolean;

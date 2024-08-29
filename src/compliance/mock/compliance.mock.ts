@@ -1,6 +1,6 @@
-import { ComplianceDestination } from "../domain/compliance.domain";
+import { Destination } from "../domain/compliance.domain";
 
-export const complianceDestinationMock = (): ComplianceDestination => ({
+export const destinationMock = (): Destination => ({
   destination: "Mock Destination",
   country: "Mock Country",
   customMessage: "This is a custom message.",

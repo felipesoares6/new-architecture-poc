@@ -1,14 +1,14 @@
-import { ComplianceDestination } from "../domain/compliance.domain.ts";
-import { ComplianceDestinationsApiResponse } from "./compliance.request.ts";
+import { Destination } from "../domain/compliance.domain.ts";
+import { destinationsApiResponse } from "./compliance.request.ts";
 
-import { normalizeComplianceDestinationsResponse } from "./compliance.normalize.ts";
+import { normalizeDestinationsResponse } from "./compliance.normalize.ts";
 
 export interface ComplianceClient {
-  getComplianceDestinations: () => Promise<ComplianceDestination[]>;
+  getDestinations: () => Promise<Destination[]>;
 }
 
 export const complianceClient = (): ComplianceClient => {
-  const getComplianceDestinations = async () => {
+  const getDestinations = async () => {
     try {
       const response = await fetch(
         "http://192.168.1.4:8080/src/compliance/client/mock-data.json"
@@ -18,15 +18,13 @@ export const complianceClient = (): ComplianceClient => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const complianceDestinations =
-        (await response.json()) as ComplianceDestinationsApiResponse[];
+      const destinations = (await response.json()) as destinationsApiResponse[];
 
-      const complianceDestinationsNormalized = complianceDestinations?.map(
-        (complianceDestination) =>
-          normalizeComplianceDestinationsResponse(complianceDestination)
+      const destinationsNormalized = destinations?.map((destination) =>
+        normalizeDestinationsResponse(destination)
       );
 
-      return complianceDestinationsNormalized;
+      return destinationsNormalized;
     } catch (error) {
       console.error("Failed to fetch the data", error);
     }
@@ -35,6 +33,6 @@ export const complianceClient = (): ComplianceClient => {
   };
 
   return {
-    getComplianceDestinations,
+    getDestinations,
   };
 };

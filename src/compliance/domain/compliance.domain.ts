@@ -1,4 +1,4 @@
-export interface ComplianceDestination {
+export interface Destination {
   destination: string;
   country: string;
   customMessage: string;
@@ -7,34 +7,24 @@ export interface ComplianceDestination {
   location: string;
 }
 
-export interface ComplianceDestinationOption {
+export interface DestinationOption {
   description: string;
   value: string;
 }
 
 export interface ComplianceDomain {
-  complianceDestinationsEnabledOffsite: (
-    complianceDestinations: ComplianceDestination[]
-  ) => ComplianceDestination[];
-  complianceDestinationsEnabledOnsite: (
-    complianceDestinations: ComplianceDestination[]
-  ) => ComplianceDestination[];
-  complianceDestinationsOptions: (
-    complianceDestinations: ComplianceDestination[]
-  ) => ComplianceDestinationOption[];
+  destinationsEnabledOffsite: (destinations: Destination[]) => Destination[];
+  destinationsEnabledOnsite: (destinations: Destination[]) => Destination[];
+  destinationsOptions: (destinations: Destination[]) => DestinationOption[];
 }
 
 export const complianceDomain: ComplianceDomain = {
-  complianceDestinationsEnabledOffsite: (
-    complianceDestinations: ComplianceDestination[]
-  ) => complianceDestinations.filter((destination) => destination.offsite),
-  complianceDestinationsEnabledOnsite: (
-    complianceDestinations: ComplianceDestination[]
-  ) => complianceDestinations.filter((destination) => destination.onsite),
-  complianceDestinationsOptions: (
-    complianceDestinations: ComplianceDestination[]
-  ) =>
-    complianceDestinations.map((destination) => ({
+  destinationsEnabledOffsite: (destinations: Destination[]) =>
+    destinations.filter((destination) => destination.offsite),
+  destinationsEnabledOnsite: (destinations: Destination[]) =>
+    destinations.filter((destination) => destination.onsite),
+  destinationsOptions: (destinations: Destination[]) =>
+    destinations.map((destination) => ({
       description: `${destination.location}-${destination.destination}-${destination.country}`,
       value: destination.destination,
     })),

@@ -2,15 +2,15 @@ import { proxy } from "valtio";
 import { ComplianceStore } from "../store/compliance.store.ts";
 import { ComplianceClient } from "../client/compliance.client.ts";
 import { makeComplianceUseCase } from "./compliance.usecase.ts";
-import { complianceDestinationMock } from "../mock/compliance.mock.ts";
+import { destinationMock } from "../mock/compliance.mock.ts";
 
-const mockComplianceDestination = complianceDestinationMock();
+const mockDestination = destinationMock();
 
 describe("makeComplianceUseCase", () => {
   it("should load compliance destinations and update the store", async () => {
     // Create a real compliance store using valtio's
     const complianceStore: ComplianceStore = proxy({
-      complianceDestinations: {
+      destinations: {
         value: [],
         isLoading: false,
         error: null,
@@ -19,9 +19,7 @@ describe("makeComplianceUseCase", () => {
 
     // Create a mock compliance client
     const complianceClient: ComplianceClient = {
-      getComplianceDestinations: jest
-        .fn()
-        .mockResolvedValue([mockComplianceDestination]),
+      getDestinations: jest.fn().mockResolvedValue([mockDestination]),
     };
 
     // Create the use case
@@ -31,11 +29,11 @@ describe("makeComplianceUseCase", () => {
     });
 
     // Call the function that should load the data
-    await complianceUseCase().loadInitialComplianceDestinations();
+    await complianceUseCase().loadInitialDestinations();
 
     // Verify that the store has been updated with the fetched data
-    expect(complianceStore.complianceDestinations).toEqual({
-      value: [mockComplianceDestination],
+    expect(complianceStore.destinations).toEqual({
+      value: [mockDestination],
       isLoading: false,
       error: null,
     });

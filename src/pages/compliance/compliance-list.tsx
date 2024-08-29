@@ -1,41 +1,36 @@
 import React from "react";
 import { useCompliancePresenter } from "../../compliance/presenter/compliance.presenter.ts";
 import { complianceUseCase } from "../../compliance/use-case/compliance.usecase.ts";
+import { Button } from "../../style-guide/atoms/button/button.tsx";
 
-const { loadInitialComplianceDestinations } = complianceUseCase();
+const { loadInitialDestinations } = complianceUseCase();
+
+const boxStyle = {
+  height: 200,
+  overflow: "scroll",
+  border: "1px solid #000",
+  margin: "16px",
+};
 
 export const ComplianceList = () => {
   const {
-    complianceDestinationsEnabledOnsite,
-    complianceDestinationsEnabledOffsite,
-    complianceDestinationsOptions,
-    isLoadingComplianceDestinations,
+    destinationsEnabledOnsite,
+    destinationsEnabledOffsite,
+    destinationsOptions,
+    isLoadingDestinations,
   } = useCompliancePresenter();
 
   return (
     <>
-      <button
-        style={{
-          border: "1px solid #000",
-          margin: "16px",
-          padding: "16px",
-        }}
-        onClick={loadInitialComplianceDestinations}
-      >
-        refetch
-      </button>
+      <Button onClick={loadInitialDestinations}>refetch</Button>
 
-      {isLoadingComplianceDestinations ? (
+      {isLoadingDestinations ? (
         <h3>Loading...</h3>
       ) : (
         <ComplianceListLoaded
-          complianceDestinationsEnabledOnsite={
-            complianceDestinationsEnabledOnsite
-          }
-          complianceDestinationsEnabledOffsite={
-            complianceDestinationsEnabledOffsite
-          }
-          complianceDestinationsOptions={complianceDestinationsOptions}
+          destinationsEnabledOnsite={destinationsEnabledOnsite}
+          destinationsEnabledOffsite={destinationsEnabledOffsite}
+          destinationsOptions={destinationsOptions}
         />
       )}
     </>
@@ -43,60 +38,35 @@ export const ComplianceList = () => {
 };
 
 export const ComplianceListLoaded = ({
-  complianceDestinationsEnabledOnsite,
-  complianceDestinationsEnabledOffsite,
-  complianceDestinationsOptions,
+  destinationsEnabledOnsite,
+  destinationsEnabledOffsite,
+  destinationsOptions,
 }) => {
   return (
     <div>
       <h3>Compliance destinations enabled off site</h3>
 
-      <div
-        style={{
-          height: 200,
-          overflow: "scroll",
-          border: "1px solid #000",
-          margin: "16px",
-        }}
-      >
-        {complianceDestinationsEnabledOnsite?.map((complianceDestination) => (
-          <div key={complianceDestination.location}>
-            {complianceDestination.location}
-          </div>
+      <div style={boxStyle}>
+        {destinationsEnabledOnsite?.map((destination) => (
+          <div key={destination.location}>{destination.location}</div>
         ))}
       </div>
 
       <h3>Compliance destinations enabled off site</h3>
 
-      <div
-        style={{
-          height: 200,
-          overflow: "scroll",
-          border: "1px solid #000",
-          margin: "16px",
-        }}
-      >
-        {complianceDestinationsEnabledOffsite?.map((complianceDestination) => (
-          <div key={complianceDestination.location}>
-            {complianceDestination.location}
-          </div>
+      <div style={boxStyle}>
+        {destinationsEnabledOffsite?.map((destination) => (
+          <div key={destination.location}>{destination.location}</div>
         ))}
       </div>
 
       <h3>Compliance destinations as options</h3>
 
-      <div
-        style={{
-          height: 200,
-          overflow: "scroll",
-          border: "1px solid #000",
-          margin: "16px",
-        }}
-      >
-        {complianceDestinationsOptions?.map((complianceDestination) => (
-          <div key={complianceDestination.value}>
-            <p>description: {complianceDestination.description}</p>
-            <p>value: {complianceDestination.value}</p>
+      <div style={boxStyle}>
+        {destinationsOptions?.map((destination) => (
+          <div key={destination.value}>
+            <p>description: {destination.description}</p>
+            <p>value: {destination.value}</p>
           </div>
         ))}
       </div>

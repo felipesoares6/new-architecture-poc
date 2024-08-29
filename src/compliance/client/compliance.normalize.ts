@@ -1,9 +1,9 @@
-import { ComplianceDestination } from "../domain/compliance.domain";
-import { ComplianceDestinationsApiResponse } from "./compliance.request";
+import { Destination } from "../domain/compliance.domain";
+import { destinationsApiResponse } from "./compliance.request";
 
-export const normalizeComplianceDestinationsResponse = (
-  data: ComplianceDestinationsApiResponse
-): ComplianceDestination => ({
+export const normalizeDestinationsResponse = (
+  data: destinationsApiResponse
+): Destination => ({
   destination: data.destination,
   country: data.country,
   customMessage: data.customMessage,

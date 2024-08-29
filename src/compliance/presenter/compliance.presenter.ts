@@ -17,23 +17,20 @@ export const makeUseCompliancePresenter =
     complianceDomain: ComplianceDomain;
   }) =>
   () => {
-    const { complianceDestinations } = useSnapshot(complianceStore);
+    const { destinations } = useSnapshot(complianceStore);
 
     return {
-      complianceDestinationsEnabledOffsite:
-        complianceDomain.complianceDestinationsEnabledOffsite([
-          ...complianceDestinations.value,
-        ]),
-      complianceDestinationsEnabledOnsite:
-        complianceDomain.complianceDestinationsEnabledOnsite([
-          ...complianceDestinations.value,
-        ]),
-      complianceDestinationsOptions:
-        complianceDomain.complianceDestinationsOptions([
-          ...complianceDestinations.value,
-        ]),
-      isLoadingComplianceDestinations: complianceDestinations.isLoading,
-      complianceDestinationsError: complianceDestinations.error,
+      destinationsEnabledOffsite: complianceDomain.destinationsEnabledOffsite([
+        ...destinations.value,
+      ]),
+      destinationsEnabledOnsite: complianceDomain.destinationsEnabledOnsite([
+        ...destinations.value,
+      ]),
+      destinationsOptions: complianceDomain.destinationsOptions([
+        ...destinations.value,
+      ]),
+      isLoadingDestinations: destinations.isLoading,
+      destinationsError: destinations.error,
     };
   };
 
