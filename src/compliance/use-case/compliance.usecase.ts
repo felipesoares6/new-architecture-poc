@@ -2,7 +2,10 @@ import {
   complianceClient,
   ComplianceClient,
 } from "../client/compliance.client.ts";
+import { Destination } from "../domain/compliance.domain.ts";
 import { ComplianceStore, complianceStore } from "../store/compliance.store.ts";
+import { addDestination } from "./add-destination.usecase.ts";
+import { loadDestinations } from "./load-destinations.usecase.ts";
 
 // The use case represents the actions the UI can take like trigerring an API call, write something on the state and so on
 
@@ -17,28 +20,10 @@ export const makeComplianceUseCase =
     complianceClient: ComplianceClient;
   }) =>
   () => {
-    const loadDestinations = async () => {
-      try {
-        complianceStore.destinations.isLoading = true;
-
-        const destinationsData = await complianceClient.getDestinations();
-
-        complianceStore.destinations = {
-          value: destinationsData,
-          error: null,
-          isLoading: false,
-        };
-      } catch (error) {
-        complianceStore.destinations = {
-          value: [],
-          error: `Error: ${error}`,
-          isLoading: false,
-        };
-      }
-    };
-
     return {
-      loadDestinations,
+      loadDestinations: loadDestinations({ complianceStore, complianceClient }),
+      addDestination: (destination: Destination) =>
+        addDestination({ complianceStore, destination }),
     };
   };
 
