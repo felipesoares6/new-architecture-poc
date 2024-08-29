@@ -1,17 +1,19 @@
-import { Destination } from "../domain/compliance.domain.ts";
+import { Destination } from "../model/compliance.model.ts";
 import { ComplianceStore } from "../store/compliance.store.ts";
 
-export const addDestination = async ({
+export const addDestination = ({
   complianceStore,
+  destinations,
   destination,
 }: {
   complianceStore: ComplianceStore;
   destination: Destination;
+  destinations: Destination[];
 }) => {
   complianceStore.destinations.isLoading = true;
 
   complianceStore.destinations = {
-    value: [...complianceStore.destinations.value, destination],
+    value: [...destinations, destination],
     error: null,
     isLoading: false,
   };

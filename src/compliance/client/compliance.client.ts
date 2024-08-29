@@ -1,4 +1,4 @@
-import { Destination } from "../domain/compliance.domain.ts";
+import { Destination } from "../model/compliance.model.ts";
 import { destinationsApiResponse } from "./compliance.request.ts";
 
 import { normalizeDestinationsResponse } from "./compliance.normalize.ts";

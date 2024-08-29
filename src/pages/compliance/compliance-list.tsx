@@ -1,9 +1,10 @@
 import React from "react";
 import { useCompliancePresenter } from "../../compliance/presenter/compliance.presenter.ts";
 import { complianceUseCase } from "../../compliance/use-case/compliance.usecase.ts";
+import { destinationMock } from "../../compliance/mock/compliance.mock.ts";
 import { Button } from "../../style-guide/atoms/button/button.tsx";
 
-const { loadDestinations } = complianceUseCase();
+const { loadDestinations, addDestination } = complianceUseCase();
 
 const boxStyle = {
   height: 200,
@@ -18,11 +19,20 @@ export const ComplianceList = () => {
     destinationsEnabledOffsite,
     destinationsOptions,
     isLoadingDestinations,
+    destinations,
   } = useCompliancePresenter();
 
   return (
     <>
       <Button onClick={loadDestinations}>refetch</Button>
+
+      <Button
+        onClick={() =>
+          addDestination({ destinations, destination: destinationMock() })
+        }
+      >
+        Add destination
+      </Button>
 
       {isLoadingDestinations ? (
         <h3>Loading...</h3>

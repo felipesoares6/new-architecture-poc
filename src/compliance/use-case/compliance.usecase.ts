@@ -2,7 +2,7 @@ import {
   complianceClient,
   ComplianceClient,
 } from "../client/compliance.client.ts";
-import { Destination } from "../domain/compliance.domain.ts";
+import { Destination } from "../model/compliance.model.ts";
 import { ComplianceStore, complianceStore } from "../store/compliance.store.ts";
 import { addDestination } from "./add-destination.usecase.ts";
 import { loadDestinations } from "./load-destinations.usecase.ts";
@@ -23,8 +23,13 @@ export const makeComplianceUseCase =
     return {
       loadDestinations: () =>
         loadDestinations({ complianceStore, complianceClient }),
-      addDestination: (destination: Destination) =>
-        addDestination({ complianceStore, destination }),
+      addDestination: ({
+        destinations,
+        destination,
+      }: {
+        destinations: readonly Destination[];
+        destination: Destination;
+      }) => addDestination({ complianceStore, destinations, destination }),
     };
   };
 
