@@ -8,13 +8,11 @@ export const addDestination = async ({
   complianceStore: ComplianceStore;
   destination: Destination;
 }) => {
-  try {
-    complianceStore.destinations.isLoading = true;
+  complianceStore.destinations.isLoading = true;
 
-    complianceStore.destinations = {
-      value: [...complianceStore.destinations.value, destination],
-      error: null,
-      isLoading: false
-    };
-  }
+  complianceStore.destinations = {
+    value: [...complianceStore.destinations.value, destination],
+    error: null,
+    isLoading: false,
+  };
 };

@@ -22,7 +22,7 @@ export const ComplianceList = () => {
 
   return (
     <>
-      <Button onClick={() => loadDestinations}>refetch</Button>
+      <Button onClick={loadDestinations}>refetch</Button>
 
       {isLoadingDestinations ? (
         <h3>Loading...</h3>

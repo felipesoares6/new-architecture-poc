@@ -24,5 +24,7 @@ export const loadDestinations = async ({
       error: `Error: ${error}`,
       isLoading: false,
     };
+
+    console.error(error);
   }
 };

@@ -21,7 +21,8 @@ export const makeComplianceUseCase =
   }) =>
   () => {
     return {
-      loadDestinations: loadDestinations({ complianceStore, complianceClient }),
+      loadDestinations: () =>
+        loadDestinations({ complianceStore, complianceClient }),
       addDestination: (destination: Destination) =>
         addDestination({ complianceStore, destination }),
     };
