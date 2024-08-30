@@ -1,17 +1,32 @@
-import { RouterProvider, createRouter } from "@tanstack/react-router";
 import React from "react";
-import { rootRoute } from "./root-route.tsx";
-import { indexRoute } from "./index-route.ts";
-import { complianceRoute } from "./compliance-route.ts";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { complianceUseCase } from "../../compliance/use-case/compliance.usecase.ts";
+import { CompliancePage } from "../../pages/compliance/compliance.tsx";
+import { LoginPage } from "../../pages/login-v2/login.tsx";
+import { Root } from "./root-route.tsx";
 
-const routeTree = rootRoute.addChildren([indexRoute, complianceRoute]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/compliance",
+        element: <CompliancePage />,
+        loader: async () => {
+          const { loadDestinations } = complianceUseCase();
 
-const router = createRouter({ routeTree });
+          await loadDestinations();
 
-declare module "@tanstack/react-router" {
-  interface Register {
-    router: typeof router;
-  }
-}
+          return null;
+        },
+      },
+    ],
+  },
+]);
 
 export const Router = () => <RouterProvider router={router} />;
