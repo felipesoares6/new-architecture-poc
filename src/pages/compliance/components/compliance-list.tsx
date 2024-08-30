@@ -1,10 +1,10 @@
 import React from "react";
-import { useCompliancePresenter } from "../../compliance/presenter/compliance.presenter.ts";
-import { complianceUseCase } from "../../compliance/use-case/compliance.usecase.ts";
-import { Button } from "../../style-guide/atoms/button/button.tsx";
-import { ComplianceForm } from "./compliance-form.tsx";
-
-const { loadDestinations } = complianceUseCase();
+import { useCompliancePresenter } from "../../../compliance/presenter/compliance.presenter.ts";
+import { Link } from "react-router-dom";
+import {
+  Destination,
+  DestinationOption,
+} from "../../../compliance/model/compliance.model.ts";
 
 const boxStyle = {
   height: 200,
@@ -25,10 +25,6 @@ export const ComplianceList = () => {
 
   return (
     <>
-      <Button onClick={loadDestinations}>refetch</Button>
-
-      <ComplianceForm />
-
       {isLoadingDestinations ? (
         <h3>Loading...</h3>
       ) : (
@@ -46,6 +42,10 @@ export const ComplianceListLoaded = ({
   destinationsEnabledOnsite,
   destinationsEnabledOffsite,
   destinationsOptions,
+}: {
+  destinationsEnabledOnsite: readonly Destination[];
+  destinationsEnabledOffsite: readonly Destination[];
+  destinationsOptions: readonly DestinationOption[];
 }) => {
   return (
     <div>
@@ -53,7 +53,13 @@ export const ComplianceListLoaded = ({
 
       <div style={boxStyle}>
         {destinationsEnabledOnsite?.map((destination) => (
-          <div key={destination.location}>{destination.location}</div>
+          <Link
+            key={destination.location}
+            to={`/compliance/${destination.destination}`}
+            className="[&.active]:font-bold"
+          >
+            <div>{destination.location}</div>
+          </Link>
         ))}
       </div>
 
@@ -61,7 +67,13 @@ export const ComplianceListLoaded = ({
 
       <div style={boxStyle}>
         {destinationsEnabledOffsite?.map((destination) => (
-          <div key={destination.location}>{destination.location}</div>
+          <Link
+            key={destination.location}
+            to={`/compliance/${destination.destination}`}
+            className="[&.active]:font-bold"
+          >
+            <div>{destination.location}</div>
+          </Link>
         ))}
       </div>
 

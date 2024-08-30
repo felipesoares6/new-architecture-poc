@@ -4,8 +4,10 @@ import {
 } from "../client/compliance.client.ts";
 import { ComplianceStore, complianceStore } from "../store/compliance.store.ts";
 import { addDestination } from "./add-destination.usecase.ts";
+import { loadDestination } from "./load-destination.usecase.ts";
 import { loadDestinations } from "./load-destinations.usecase.ts";
 import { updateDestinationForm } from "./update-destination-form.usecase.ts";
+import { updateDestination } from "./update-destination.usecase.ts";
 
 // The use case represents the actions the UI can take like loading data, write something on the state and so on
 
@@ -34,7 +36,12 @@ export const makeComplianceUseCase =
       loadDestinations: () =>
         loadDestinations({ complianceStore, complianceClient }),
 
+      loadDestination: (id: string) => loadDestination({ id, complianceStore }),
+
       addDestination: () => addDestination({ complianceStore }),
+
+      updateDestination: (id: string) =>
+        updateDestination({ id, complianceStore }),
     };
   };
 

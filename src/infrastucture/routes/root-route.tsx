@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 export const Root = () => {
   return (
     <>
-      <div id="sidebar">
+      <div style={{ border: "1px solid #000", margin: 16, padding: 16 }}>
         <nav>
           <ul>
             <li>
@@ -18,7 +18,9 @@ export const Root = () => {
           </ul>
         </nav>
       </div>
-      <Outlet />
+      <div style={{ border: "1px solid #000", margin: 16, padding: 16 }}>
+        <Outlet />
+      </div>
     </>
   );
 };

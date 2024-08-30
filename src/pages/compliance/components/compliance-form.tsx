@@ -1,10 +1,10 @@
 import React from "react";
-import { useCompliancePresenter } from "../../compliance/presenter/compliance.presenter.ts";
-import { complianceUseCase } from "../../compliance/use-case/compliance.usecase.ts";
-import { Button } from "../../style-guide/atoms/button/button.tsx";
-import { Input } from "../../style-guide/atoms/input/input.tsx";
+import { useCompliancePresenter } from "../../../compliance/presenter/compliance.presenter.ts";
+import { complianceUseCase } from "../../../compliance/use-case/compliance.usecase.ts";
+import { Button } from "../../../style-guide/atoms/button/button.tsx";
+import { Input } from "../../../style-guide/atoms/input/input.tsx";
 
-const { addDestination, updateDestinationForm } = complianceUseCase();
+const { updateDestinationForm } = complianceUseCase();
 
 const boxStyle = {
   height: 200,
@@ -15,7 +15,13 @@ const boxStyle = {
 
 // The view will only have access to the interface and/or to the use case as needed, it will never access the store directly
 
-export const ComplianceForm = () => {
+export const ComplianceForm = ({
+  buttonText,
+  onSubmit,
+}: {
+  buttonText: string;
+  onSubmit: () => void;
+}) => {
   const { newDestination } = useCompliancePresenter();
 
   return (
@@ -61,7 +67,7 @@ export const ComplianceForm = () => {
           }
         />
 
-        <Button onClick={addDestination}>Add destination</Button>
+        <Button onClick={onSubmit}>{buttonText}</Button>
       </div>
     </>
   );
