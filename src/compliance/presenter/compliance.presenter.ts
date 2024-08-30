@@ -1,4 +1,3 @@
-import { Destination } from "../model/compliance.model.ts";
 import { ComplianceStore, complianceStore } from "../store/compliance.store.ts";
 
 import { useSnapshot } from "valtio";
@@ -12,11 +11,7 @@ import { useSnapshot } from "valtio";
 export const makeUseCompliancePresenter =
   ({ complianceStore }: { complianceStore: ComplianceStore }) =>
   () => {
-    const { destinations } = useSnapshot(complianceStore);
-
-    const getName = (destinations: Destination[]) => destinations;
-
-    getName([...destinations.value]);
+    const { destinations, newDestination } = useSnapshot(complianceStore);
 
     return {
       destinationsEnabledOffsite: destinations.value.filter(
@@ -32,6 +27,7 @@ export const makeUseCompliancePresenter =
       isLoadingDestinations: destinations.isLoading,
       destinationsError: destinations.error,
       destinations: destinations.value,
+      newDestination,
     };
   };
 

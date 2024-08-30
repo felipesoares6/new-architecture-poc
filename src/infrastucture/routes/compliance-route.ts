@@ -7,6 +7,7 @@ export const complianceRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/compliance",
   component: CompliancePage,
+
   loader: async () => {
     const { loadDestinations } = complianceUseCase();
 

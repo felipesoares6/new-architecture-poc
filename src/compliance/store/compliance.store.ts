@@ -9,7 +9,17 @@ export interface ComplianceStore {
     error: null | string;
     isLoading: boolean;
   };
+  newDestination: Destination;
 }
+
+export const newDestinationInitialState = (): Destination => ({
+  destination: "",
+  country: "",
+  customMessage: "",
+  offsite: true,
+  onsite: true,
+  location: "",
+});
 
 export const complianceStore = proxy<ComplianceStore>({
   destinations: {
@@ -17,4 +27,5 @@ export const complianceStore = proxy<ComplianceStore>({
     error: null,
     isLoading: false,
   },
+  newDestination: newDestinationInitialState(),
 });
