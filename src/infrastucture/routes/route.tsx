@@ -7,8 +7,8 @@ import {
 import { complianceUseCase } from "../../compliance/use-case/compliance.usecase.ts";
 import { CompliancePage } from "../../pages/compliance/compliance.tsx";
 import { LoginPage } from "../../pages/login-v2/login.tsx";
-import { ComplianceEditRoute } from "./compliace-edit-route.tsx";
-import { ComplianceNewRoute } from "./compliace-new-route.tsx";
+import { ComplianceEditRoute } from "./compliance/compliace-edit-route.tsx";
+import { ComplianceNewRoute } from "./compliance/compliace-new-route.tsx";
 import { Root } from "./root-route.tsx";
 
 const router = createBrowserRouter([

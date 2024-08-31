@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router";
-import { ComplianceEditPage } from "../../pages/compliance/compliance-edit.tsx";
+import { ComplianceEditPage } from "../../../pages/compliance/compliance-edit.tsx";
 
 export const ComplianceEditRoute = () => {
   const { id } = useParams();
