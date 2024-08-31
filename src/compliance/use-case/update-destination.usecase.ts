@@ -1,4 +1,7 @@
-import { ComplianceStore } from "../store/compliance.store.ts";
+import {
+  ComplianceStore,
+  newDestinationInitialState,
+} from "../store/compliance.store.ts";
 
 export const updateDestination = async ({
   id,
@@ -15,4 +18,6 @@ export const updateDestination = async ({
     complianceStore.newDestination,
     ...destinations,
   ];
+
+  complianceStore.newDestination = newDestinationInitialState();
 };

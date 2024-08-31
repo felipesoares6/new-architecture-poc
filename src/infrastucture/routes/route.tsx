@@ -24,9 +24,11 @@ const router = createBrowserRouter([
         path: "compliance",
         element: <CompliancePage />,
         loader: async () => {
-          const { loadDestinations } = complianceUseCase();
+          // Fetch API value when loading the route
 
-          await loadDestinations();
+          // const { loadDestinations } = complianceUseCase();
+
+          // await loadDestinations();
 
           return null;
         },
