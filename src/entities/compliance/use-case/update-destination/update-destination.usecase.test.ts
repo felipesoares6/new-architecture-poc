@@ -1,6 +1,7 @@
 import { proxy } from "valtio";
 import {
   ComplianceStore,
+  complianceStoreInitialState,
   newDestinationInitialState,
 } from "../../store/compliance.store";
 import { destinationMock } from "../../mock/compliance.mock";
@@ -18,6 +19,10 @@ describe("updateDestination", () => {
       },
       newDestination: newDestinationInitialState(),
     });
+  });
+
+  afterAll(() => {
+    complianceStore = complianceStoreInitialState;
   });
 
   it("should update the destination on the destinations list", async () => {

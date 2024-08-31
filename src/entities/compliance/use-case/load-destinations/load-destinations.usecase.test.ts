@@ -2,6 +2,7 @@ import { proxy } from "valtio";
 import { ComplianceClient } from "../../client/compliance.client";
 import {
   ComplianceStore,
+  complianceStoreInitialState,
   newDestinationInitialState,
 } from "../../store/compliance.store";
 import { loadDestinations } from "./load-destinations.usecase";
@@ -24,6 +25,10 @@ describe("loadDestinations", () => {
     complianceClient = {
       getDestinations: jest.fn(),
     };
+  });
+
+  afterAll(() => {
+    complianceStore = complianceStoreInitialState;
   });
 
   it("should load destinations successfully and update the store", async () => {

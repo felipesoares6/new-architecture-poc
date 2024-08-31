@@ -21,11 +21,15 @@ export const newDestinationInitialState = (): Destination => ({
   location: "",
 });
 
-export const complianceStore = proxy<ComplianceStore>({
+export const complianceStoreInitialState: ComplianceStore = {
   destinations: {
     value: [],
     error: null,
     isLoading: false,
   },
   newDestination: newDestinationInitialState(),
-});
+};
+
+export const complianceStore = proxy<ComplianceStore>(
+  complianceStoreInitialState
+);

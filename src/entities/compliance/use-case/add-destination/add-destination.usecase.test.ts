@@ -1,6 +1,7 @@
 import { proxy } from "valtio";
 import {
   ComplianceStore,
+  complianceStoreInitialState,
   newDestinationInitialState,
 } from "../../store/compliance.store.ts";
 import { destinationMock } from "../../mock/compliance.mock.ts";
@@ -18,6 +19,10 @@ describe("addDestination", () => {
       },
       newDestination: destinationMock(),
     });
+  });
+
+  afterAll(() => {
+    complianceStore = complianceStoreInitialState;
   });
 
   it("should add the new destination to the destinations array", () => {

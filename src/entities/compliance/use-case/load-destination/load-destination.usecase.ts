@@ -1,9 +1,6 @@
-import {
-  ComplianceStore,
-  newDestinationInitialState,
-} from "../../store/compliance.store.ts";
+import { ComplianceStore } from "../../store/compliance.store.ts";
 
-export const loadDestination = async ({
+export const loadDestination = ({
   id,
   complianceStore,
 }: {
@@ -13,5 +10,8 @@ export const loadDestination = async ({
   const destination = complianceStore.destinations.value.find(
     (d) => d.destination === id
   );
-  complianceStore.newDestination = destination || newDestinationInitialState();
+
+  if (destination) {
+    complianceStore.newDestination = destination;
+  }
 };

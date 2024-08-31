@@ -1,6 +1,7 @@
 import { proxy } from "valtio";
 import {
   ComplianceStore,
+  complianceStoreInitialState,
   newDestinationInitialState,
 } from "../../store/compliance.store";
 import { updateDestinationForm } from "./update-destination-form.usecase";
@@ -18,6 +19,10 @@ describe("updateDestinationForm", () => {
       },
       newDestination: newDestinationInitialState(),
     });
+  });
+
+  afterAll(() => {
+    complianceStore = complianceStoreInitialState;
   });
 
   it("should update the specified attribute of newDestination", () => {
