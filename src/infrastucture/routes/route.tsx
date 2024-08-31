@@ -4,11 +4,10 @@ import {
   LoaderFunctionArgs,
   RouterProvider,
 } from "react-router-dom";
-import { complianceUseCase } from "../../compliance/use-case/compliance.usecase.ts";
-import { CompliancePage } from "../../pages/compliance/compliance.tsx";
-import { LoginPage } from "../../pages/login-v2/login.tsx";
-import { ComplianceEditRoute } from "./compliance/compliace-edit-route.tsx";
-import { ComplianceNewRoute } from "./compliance/compliace-new-route.tsx";
+import { ComplianceEditRoute } from "../../entities/compliance/route/compliace-edit-route.tsx";
+import { ComplianceNewRoute } from "../../entities/compliance/route/compliace-new-route.tsx";
+import { CompliancePage } from "../../entities/compliance/ui/pages/compliance.tsx";
+import { complianceUseCase } from "../../entities/compliance/use-case/compliance.usecase.ts";
 import { Root } from "./root-route.tsx";
 
 const router = createBrowserRouter([
@@ -16,10 +15,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     children: [
-      {
-        path: "login",
-        element: <LoginPage />,
-      },
       {
         path: "compliance",
         element: <CompliancePage />,
