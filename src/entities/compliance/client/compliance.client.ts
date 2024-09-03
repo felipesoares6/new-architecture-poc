@@ -11,7 +11,7 @@ export const complianceClient = (): ComplianceClient => {
   const getDestinations = async () => {
     try {
       const response = await fetch(
-        "http://192.168.1.4:8080/src/compliance/client/mock-data.json"
+        "http://192.168.1.4:8080/src/entities/compliance/client/mock-data.json"
       );
 
       if (!response.ok) {

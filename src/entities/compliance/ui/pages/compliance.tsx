@@ -23,7 +23,7 @@ export const CompliancePage = () => {
         </nav>
       </div>
       <Button onClick={loadDestinations}>refetch</Button>
-      <ComplianceList />;
+      <ComplianceList />
     </>
   );
 };
