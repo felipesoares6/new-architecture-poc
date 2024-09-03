@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import { URL } from "./urls.ts";
 
 export const Root = () => {
   return (
@@ -7,12 +8,7 @@ export const Root = () => {
       <div style={{ border: "1px solid #000", margin: 16, padding: 16 }}>
         <nav>
           <ul>
-            <li>
-              <Link to="/login" className="[&.active]:font-bold">
-                Login
-              </Link>
-            </li>
-            <Link to="/compliance" className="[&.active]:font-bold">
+            <Link to={URL.COMPLIANCE_LIST} className="[&.active]:font-bold">
               Compliance List
             </Link>
           </ul>
