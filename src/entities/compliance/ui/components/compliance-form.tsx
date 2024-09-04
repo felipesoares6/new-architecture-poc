@@ -1,10 +1,7 @@
 import React from "react";
-import { useCompliancePresenter } from "../../presenter/compliance.presenter.ts";
-import { complianceUseCase } from "../../use-case/compliance.usecase.ts";
 import { Button } from "../../../../style-guide/atoms/button/button.tsx";
 import { Input } from "../../../../style-guide/atoms/input/input.tsx";
-
-const { updateDestinationForm } = complianceUseCase();
+import { useCompliancePresenter } from "../../presenter/compliance.presenter.ts";
 
 const boxStyle = {
   height: 200,
@@ -18,9 +15,17 @@ const boxStyle = {
 export const ComplianceForm = ({
   buttonText,
   onSubmit,
+  onFormChange,
 }: {
   buttonText: string;
   onSubmit: () => void;
+  onFormChange: ({
+    attribute,
+    value,
+  }: {
+    attribute: string;
+    value: string;
+  }) => void;
 }) => {
   const { newDestination } = useCompliancePresenter();
 
@@ -33,7 +38,7 @@ export const ComplianceForm = ({
           placeholder="Location"
           value={newDestination.location}
           onChange={({ target: { value } }) =>
-            updateDestinationForm({ attribute: "location", value })
+            onFormChange({ attribute: "location", value })
           }
         />
 
@@ -43,7 +48,7 @@ export const ComplianceForm = ({
           placeholder="Country"
           value={newDestination.country}
           onChange={({ target: { value } }) =>
-            updateDestinationForm({ attribute: "country", value })
+            onFormChange({ attribute: "country", value })
           }
         />
 
@@ -53,7 +58,7 @@ export const ComplianceForm = ({
           placeholder="Custom message"
           value={newDestination.customMessage}
           onChange={({ target: { value } }) =>
-            updateDestinationForm({ attribute: "customMessage", value })
+            onFormChange({ attribute: "customMessage", value })
           }
         />
 
@@ -63,7 +68,7 @@ export const ComplianceForm = ({
           placeholder="Destination"
           value={newDestination.destination}
           onChange={({ target: { value } }) =>
-            updateDestinationForm({ attribute: "destination", value })
+            onFormChange({ attribute: "destination", value })
           }
         />
 

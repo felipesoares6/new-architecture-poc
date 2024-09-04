@@ -23,27 +23,25 @@ export const makeComplianceUseCase =
     complianceStore: ComplianceStore;
     complianceClient: ComplianceClient;
   }) =>
-  () => {
-    return {
-      updateDestinationForm: ({
-        attribute,
-        value,
-      }: {
-        attribute: string;
-        value: string;
-      }) => updateDestinationForm({ attribute, value, complianceStore }),
+  () => ({
+    updateDestinationForm: ({
+      attribute,
+      value,
+    }: {
+      attribute: string;
+      value: string;
+    }) => updateDestinationForm({ attribute, value, complianceStore }),
 
-      loadDestinations: () =>
-        loadDestinations({ complianceStore, complianceClient }),
+    loadDestinations: () =>
+      loadDestinations({ complianceStore, complianceClient }),
 
-      loadDestination: (id: string) => loadDestination({ id, complianceStore }),
+    loadDestination: (id: string) => loadDestination({ id, complianceStore }),
 
-      addDestination: () => addDestination({ complianceStore }),
+    addDestination: () => addDestination({ complianceStore }),
 
-      updateDestination: (id: string) =>
-        updateDestination({ id, complianceStore }),
-    };
-  };
+    updateDestination: (id: string) =>
+      updateDestination({ id, complianceStore }),
+  });
 
 export const complianceUseCase = makeComplianceUseCase({
   complianceClient: complianceClient(),

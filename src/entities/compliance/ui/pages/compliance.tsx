@@ -23,6 +23,7 @@ export const CompliancePage = () => {
       </nav>
 
       <Button onClick={loadDestinations}>refetch</Button>
+
       <ComplianceList />
     </>
   );

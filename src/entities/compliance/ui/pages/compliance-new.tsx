@@ -4,7 +4,7 @@ import { complianceUseCase } from "../../use-case/compliance.usecase.ts";
 
 // The view will only have access to the interface and/or to the use case as needed, it will never access the store directly
 
-const { addDestination } = complianceUseCase();
+const { addDestination, updateDestinationForm } = complianceUseCase();
 
 export const ComplianceNewPage = ({
   navigateBack,
@@ -17,6 +17,7 @@ export const ComplianceNewPage = ({
 
       <ComplianceForm
         buttonText="Create Destination"
+        onFormChange={updateDestinationForm}
         onSubmit={() => {
           addDestination();
           navigateBack();
