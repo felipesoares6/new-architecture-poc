@@ -17,9 +17,6 @@ export const makeUseCompliancePresenter =
       destinationsEnabledOffsite: destinations.value.filter(
         (destination) => destination.offsite
       ),
-      destinationsEnabledOnsite: destinations.value.filter(
-        (destination) => destination.onsite
-      ),
       destinationsOptions: destinations.value.map((destination) => ({
         value: destination.destination,
         description: `${destination.location}`,

@@ -6,7 +6,11 @@ import { complianceUseCase } from "../../use-case/compliance.usecase.ts";
 
 const { addDestination } = complianceUseCase();
 
-export const ComplianceNewPage = ({ onSubmit }: { onSubmit: () => void }) => {
+export const ComplianceNewPage = ({
+  navigateBack,
+}: {
+  navigateBack: () => void;
+}) => {
   return (
     <>
       <h1>Add Destination</h1>
@@ -15,7 +19,7 @@ export const ComplianceNewPage = ({ onSubmit }: { onSubmit: () => void }) => {
         buttonText="Create Destination"
         onSubmit={() => {
           addDestination();
-          onSubmit();
+          navigateBack();
         }}
       />
     </>

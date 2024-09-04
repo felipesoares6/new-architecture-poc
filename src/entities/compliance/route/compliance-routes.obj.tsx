@@ -34,7 +34,7 @@ export const compliancePageRoutes: RouteObject[] = [
         loadDestination(params.id);
       }
 
-      return { id: params.id };
+      return null;
     },
   },
 ];

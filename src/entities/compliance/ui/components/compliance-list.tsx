@@ -17,7 +17,6 @@ const boxStyle = {
 
 export const ComplianceList = () => {
   const {
-    destinationsEnabledOnsite,
     destinationsEnabledOffsite,
     destinationsOptions,
     isLoadingDestinations,
@@ -29,7 +28,6 @@ export const ComplianceList = () => {
         <h3>Loading...</h3>
       ) : (
         <ComplianceListLoaded
-          destinationsEnabledOnsite={destinationsEnabledOnsite}
           destinationsEnabledOffsite={destinationsEnabledOffsite}
           destinationsOptions={destinationsOptions}
         />
@@ -39,30 +37,14 @@ export const ComplianceList = () => {
 };
 
 export const ComplianceListLoaded = ({
-  destinationsEnabledOnsite,
   destinationsEnabledOffsite,
   destinationsOptions,
 }: {
-  destinationsEnabledOnsite: readonly Destination[];
   destinationsEnabledOffsite: readonly Destination[];
   destinationsOptions: readonly DestinationOption[];
 }) => {
   return (
     <div>
-      <h3>Compliance destinations enabled on site</h3>
-
-      <div style={boxStyle}>
-        {destinationsEnabledOnsite?.map((destination) => (
-          <Link
-            key={destination.location}
-            to={`/compliance/${destination.destination}`}
-            className="[&.active]:font-bold"
-          >
-            <div>{destination.location}</div>
-          </Link>
-        ))}
-      </div>
-
       <h3>Compliance destinations enabled off site</h3>
 
       <div style={boxStyle}>

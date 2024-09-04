@@ -8,10 +8,10 @@ const { updateDestination } = complianceUseCase();
 
 export const ComplianceEditPage = ({
   id,
-  onSubmit,
+  navigateBack,
 }: {
   id: string;
-  onSubmit: () => void;
+  navigateBack: () => void;
 }) => {
   return (
     <>
@@ -21,7 +21,7 @@ export const ComplianceEditPage = ({
         buttonText="Update destination"
         onSubmit={() => {
           updateDestination(id);
-          onSubmit();
+          navigateBack();
         }}
       />
     </>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router";
 import { ComplianceEditPage } from "../ui/pages/compliance-edit.tsx";
+import { URL } from "../../../infrastucture/routes/urls.ts";
 
 export const ComplianceEditRoute = () => {
   const { id } = useParams();
@@ -12,6 +13,9 @@ export const ComplianceEditRoute = () => {
   }
 
   return (
-    <ComplianceEditPage id={id} onSubmit={() => navigate("/compliance")} />
+    <ComplianceEditPage
+      id={id}
+      navigateBack={() => navigate(URL.COMPLIANCE_LIST)}
+    />
   );
 };
